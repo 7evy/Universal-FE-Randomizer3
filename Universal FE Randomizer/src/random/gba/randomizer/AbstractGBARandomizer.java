@@ -73,6 +73,7 @@ public abstract class AbstractGBARandomizer extends Randomizer {
 	protected ItemAssignmentOptions itemAssignmentOptions;
 	protected CharacterShufflingOptions shufflingOptions;
 	protected RewardOptions rewardOptions;
+	protected ShopOptions shopOptions;
 	protected PrfOptions prfOptions;
 	protected StatboosterOptions statboosters;
 	protected PromotionOptions promotionOptions;
@@ -90,6 +91,7 @@ public abstract class AbstractGBARandomizer extends Randomizer {
 	protected MapSpriteManager mapSprites;
 	protected PromotionDataLoader promotionData;
 	protected TerrainDataLoader terrainData;
+	protected ShopLoader shopData;
 
 	/**
 	 * Shared constructor
@@ -115,6 +117,7 @@ public abstract class AbstractGBARandomizer extends Randomizer {
 		this.statboosters = options.statboosters;
 		this.promotionOptions = options.promotionOptions;
 		this.terrainOptions = options.terrainOptions;
+		this.shopOptions = options.shopOptions;
 		this.gameType = gameType;
 		this.gameFriendlyName = friendlyName;
 	}
@@ -319,6 +322,7 @@ public abstract class AbstractGBARandomizer extends Randomizer {
 		chapterData.compileDiffs(diffCompiler);
 		classData.compileDiffs(diffCompiler, sourceFileHandler, freeSpace);
 		itemData.compileDiffs(diffCompiler, sourceFileHandler);
+		shopData.compileDiffs(diffCompiler);
 		paletteData.compileDiffs(diffCompiler);
 		textData.commitChanges(freeSpace, diffCompiler);
 		portraitData.compileDiffs(diffCompiler);
@@ -388,6 +392,7 @@ public abstract class AbstractGBARandomizer extends Randomizer {
 		runRandomizationStep("promotions", 47, () -> randomizePromotionsIfNecessary());
 		runRandomizationStep("bases", 50, () -> randomizeBasesIfNecessary());
 		runRandomizationStep("weapons", 55, () -> randomizeWeaponsIfNecessary());
+		runRandomizationStep("shops", 56, () -> randomizeShopsIfNecessary());
 		runRandomizationStep("other character traits", 60, () -> randomizeOtherCharacterTraitsIfNecessary());
 		runRandomizationStep("enemy buffing", 65, () -> buffEnemiesIfNecessary());
 		runRandomizationStep("growths", 70, () -> randomizeGrowthsIfNecessary());
@@ -430,6 +435,18 @@ public abstract class AbstractGBARandomizer extends Randomizer {
 			GrowthsRandomizer.fullyRandomizeGrowthsWithRange(growths.fullOption.minValue, growths.fullOption.maxValue,
 					growths.adjustHP, charData, rng);
 			break;
+		case SMART:
+			updateStatusString("Smart Randomizing growths...");
+			GrowthsRandomizer.smartRandomizeGrowths(charData, classData, rng);
+			break;
+		}
+	}
+	
+	protected void randomizeShopsIfNecessary() {
+		if (shopOptions != null) {
+			updateStatusString("Randomizing Shops...");
+			Random rng = new Random(SeedGenerator.generateSeedValue(seedString, ShopRandomizer.rngSalt));
+			ShopRandomizer.randomizeShops(shopData, itemData, false, false, shopOptions.shopSize.minValue, shopOptions.shopSize.maxValue, rng);
 		}
 	}
 
@@ -448,6 +465,10 @@ public abstract class AbstractGBARandomizer extends Randomizer {
 		case DELTA:
 			updateStatusString("Applying random deltas to growths...");
 			BasesRandomizer.randomizeBasesByRandomDelta(bases.deltaOption.variance, charData, classData, rng);
+			break;
+		case SMART:
+			updateStatusString("Smart Randomizing bases...");
+			BasesRandomizer.smartRandomizeBases(charData, classData, chapterData, rng);
 			break;
 		}
 	}

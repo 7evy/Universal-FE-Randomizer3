@@ -53,6 +53,12 @@ public interface GBAFEItemProvider {
 	public Set<GBAFEItem> uncommonDrops();
 	public Set<GBAFEItem> rareDrops();
 	
+	public Set<GBAFEItem> vendorItems(boolean rare); // Rare items are less likely for early game.
+	public Set<GBAFEItem> secretItems(); // More interesting weapons and promotional items.
+	public Set<GBAFEItem> rareSecretItems(); // Should include things like statboosters or things that would be a bit much for normal secret shops.
+	
+	public Set<GBAFEItem> disallowedWeaponsInShops();
+	
 	public String statBoostStringForWeapon(GBAFEItem weapon);
 	public String effectivenessStringForWeapon(GBAFEItem weapon, Boolean shortString);
 	

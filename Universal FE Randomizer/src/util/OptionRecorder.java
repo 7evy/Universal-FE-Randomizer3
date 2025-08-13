@@ -39,6 +39,7 @@ public class OptionRecorder {
         public ItemAssignmentOptions itemAssignmentOptions;
         public CharacterShufflingOptions characterShufflingOptions;
         public PrfOptions prfs;
+        public ShopOptions shopOptions;
         public StatboosterOptions statboosters;
         public PromotionOptions promotionOptions;
         public TerrainOptions terrainOptions;

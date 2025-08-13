@@ -6,7 +6,7 @@ import util.recordkeeper.RecordKeeper;
 public class BaseOptions implements RecordableOption {
 
 	public enum Mode {
-		REDISTRIBUTE, DELTA
+		REDISTRIBUTE, DELTA, SMART
 	}
 
 	public final Mode mode;

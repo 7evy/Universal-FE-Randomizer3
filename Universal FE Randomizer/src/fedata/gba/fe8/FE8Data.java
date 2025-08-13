@@ -3975,4 +3975,24 @@ public class FE8Data implements GBAFECharacterProvider, GBAFEClassProvider, GBAF
 	public int getNumberEntries() {
 		return 23;
 	}
+
+	@Override
+	public Set<GBAFEItem> disallowedWeaponsInShops() {
+		return new HashSet<>();
+	}
+
+	@Override
+	public Set<GBAFEItem> vendorItems(boolean rare) {
+		return new HashSet<>();
+	}
+
+	@Override
+	public Set<GBAFEItem> secretItems() {
+		return new HashSet<>();
+	}
+
+	@Override
+	public Set<GBAFEItem> rareSecretItems() {
+		return new HashSet<>();
+	}
 }

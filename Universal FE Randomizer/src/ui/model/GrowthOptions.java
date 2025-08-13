@@ -6,7 +6,7 @@ import util.recordkeeper.RecordKeeper;
 public class GrowthOptions implements RecordableOption {
 
 	public enum Mode {
-		REDISTRIBUTE, DELTA, FULL
+		REDISTRIBUTE, DELTA, FULL, SMART
 	}
 
 	public final Mode mode;

@@ -958,4 +958,95 @@ public class ItemDataLoader {
 			rk.recordUpdatedEntry(RecordKeeperCategoryWeaponKey, name, "Range", String.format("%d ~ %d", item.getMinRange(), item.getMaxRange()));
 		}
 	}
+	
+	public List<GBAFEItemData> earlyGameArmory() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.SWORD, WeaponRank.E, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LANCE, WeaponRank.E, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.AXE, WeaponRank.E, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.BOW, WeaponRank.E, false, false, false))));
+		return items;
+	}
+	
+	public List<GBAFEItemData> midGameArmory() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.SWORD, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LANCE, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.AXE, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.BOW, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.SWORD, WeaponRank.C, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LANCE, WeaponRank.C, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.AXE, WeaponRank.C, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.BOW, WeaponRank.C, false, false, false))));
+		return items;
+	}
+	
+	public List<GBAFEItemData> lateGameArmory() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.SWORD, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LANCE, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.AXE, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.BOW, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.SWORD, WeaponRank.A, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LANCE, WeaponRank.A, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.AXE, WeaponRank.A, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.BOW, WeaponRank.A, false, false, false))));
+		items.removeAll(Arrays.asList(feItemsFromItemSet(provider.disallowedWeaponsInShops())));
+		return items;
+	}
+	
+	public List<GBAFEItemData> earlyGameVendor() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.ANIMA, WeaponRank.E, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.E, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.E, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.vendorItems(false))));
+		return items;
+	}
+	
+	public List<GBAFEItemData> midGameVendor() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.ANIMA, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.D, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.ANIMA, WeaponRank.C, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.C, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.C, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.C, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.vendorItems(true))));
+		return items;
+	}
+	
+	public List<GBAFEItemData> lateGameVendor() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.ANIMA, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.B, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.ANIMA, WeaponRank.A, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.A, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.A, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.A, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.ANIMA, WeaponRank.S, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.S, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.S, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.S, false, false, false))));
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.vendorItems(true))));
+		items.removeAll(Arrays.asList(feItemsFromItemSet(provider.disallowedWeaponsInShops())));
+		return items;
+	}
+	
+	public List<GBAFEItemData> secretItems() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.secretItems())));
+		return items;
+	}
+	
+	public List<GBAFEItemData> rareSecretItems() {
+		List<GBAFEItemData> items = new ArrayList<GBAFEItemData>();
+		items.addAll(Arrays.asList(feItemsFromItemSet(provider.rareSecretItems())));
+		return items;
+	}
 }

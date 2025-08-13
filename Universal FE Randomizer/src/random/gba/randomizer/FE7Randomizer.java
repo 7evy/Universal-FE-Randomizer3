@@ -81,6 +81,9 @@ public class FE7Randomizer extends AbstractGBARandomizer {
 		updateStatusString("Loading Item Data...");
 		updateProgress(0.25);
 		itemData = new ItemDataLoader(FE7Data.itemProvider, sourceFileHandler, freeSpace);
+		updateStatusString("Loading Shop Data...");
+		updateProgress(0.27);
+		shopData = new ShopLoader(FE7Data.shopProvider, FE7Data.itemProvider, itemData, sourceFileHandler, freeSpace);
 		updateStatusString("Loading Palette Data...");
 		updateProgress(0.30);
 		paletteData = new PaletteLoader(FEBase.GameType.FE7, sourceFileHandler, charData, classData);

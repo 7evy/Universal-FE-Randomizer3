@@ -3054,4 +3054,24 @@ public class FE6Data implements GBAFECharacterProvider, GBAFEClassProvider, GBAF
 	public int getNumberEntries() {
 		return 20;
 	}
+
+	@Override
+	public Set<GBAFEItem> disallowedWeaponsInShops() {
+		return new HashSet<>();
+	}
+
+	@Override
+	public Set<GBAFEItem> vendorItems(boolean rare) {
+		return new HashSet<>();
+	}
+
+	@Override
+	public Set<GBAFEItem> secretItems() {
+		return new HashSet<>();
+	}
+
+	@Override
+	public Set<GBAFEItem> rareSecretItems() {
+		return new HashSet<>();
+	}
 }

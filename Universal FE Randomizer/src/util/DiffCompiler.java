@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import fedata.gba.fe7.FE7Data;
 import io.DiffApplicator;
 
 public class DiffCompiler {
