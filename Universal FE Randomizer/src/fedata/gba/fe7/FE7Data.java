@@ -711,6 +711,8 @@ public class FE7Data implements GBAFEShopProvider, GBAFECharacterProvider, GBAFE
 			
 			if (isForEnemy) {
 				classList.removeAll(allPlayerOnlyClasses);
+			} else {
+				classList.remove(SOLDIER);
 			}
 			
 			return classList;
