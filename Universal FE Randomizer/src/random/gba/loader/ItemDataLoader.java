@@ -1029,10 +1029,6 @@ public class ItemDataLoader {
 		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.A, false, false, false))));
 		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.A, false, false, false))));
 		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.A, false, false, false))));
-		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.ANIMA, WeaponRank.S, false, false, false))));
-		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.LIGHT, WeaponRank.S, false, false, false))));
-		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.DARK, WeaponRank.S, false, false, false))));
-		items.addAll(Arrays.asList(feItemsFromItemSet(provider.weaponsOfTypeAndEqualRank(WeaponType.STAFF, WeaponRank.S, false, false, false))));
 		items.addAll(Arrays.asList(feItemsFromItemSet(provider.vendorItems(true))));
 		items.removeAll(Arrays.asList(feItemsFromItemSet(provider.disallowedWeaponsInShops())));
 		return items;
